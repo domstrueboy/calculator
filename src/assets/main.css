@@ -1,35 +1,51 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+@font-face {
+  font-family: 'Geometria';
+  src: local('Geometria Regular'), local('Geometria-Regular'),
+      url('fonts/Geometria-Regular.woff2') format('woff2'),
+      url('fonts/Geometria-Regular.woff') format('woff'),
+      url('fonts/Geometria-Regular.ttf') format('truetype');
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --white: #ffffff;
+  --gray: #f2f2f2;
+  --pink-1: #ffa2a2;
+  --pink-2: #ff7b7b;
+  --blue-1: #28518E;
+  --blue-2: #3A77D1;
+
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* semantic color variables for this project */
+:root {
+  --body-background: linear-gradient(122.76deg, var(--pink-1) 4.09%, var(--pink-2) 91.04%), var(--white);
+  --main-background: linear-gradient(155.23deg, var(--blue-1) 0%, var(--blue-2) 100%);
+  --color-text: var(--gray);
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: var(--body-background);
+  color: var(--color-text);
+  font-family: 'Geometria';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 36px;
+  transition: color 0.3s, background-color 0.3s;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
