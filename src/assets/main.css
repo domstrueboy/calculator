@@ -24,12 +24,18 @@
   --color-text: var(--gray);
 }
 
+/* semantic width variables for this project */
+:root {
+  --common-inner-width: 460px;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 body {
@@ -43,7 +49,6 @@ body {
   font-family: 'Geometria';
   font-weight: 500;
   font-style: normal;
-  font-size: 36px;
   transition: color 0.3s, background-color 0.3s;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
