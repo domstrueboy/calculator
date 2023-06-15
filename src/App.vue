@@ -1,27 +1,32 @@
 <script setup lang="ts">
-import type { Symbols } from './types'
+import { computed } from 'vue'
+import type { Buttons } from './types'
+import { solver } from './lib/solver'
 import DisplayArea from './components/DisplayArea.vue'
 import KeyboardArea from './components/KeyboardArea.vue'
 import CalcButton from './components/CalcButton.vue'
 
-const symbols: Symbols[] = ['√', '%', '/', '7', '8', '9', '×', '4', '5', '6', '-', '1', '2', '3', '+', '00', '0', ','];
+const buttons: Buttons[] = ['√', '%', '/', '7', '8', '9', '×', '4', '5', '6', '-', '1', '2', '3', '+', '00', '0', ',']
+
+const expression = '20 × 80 × 0,5'
+const result = computed(() => solver(expression) ?? '')
 </script>
 
 <template>
   <main class="calculator">
 
     <DisplayArea
-      :expression="'20x80x0,5'"
-      :result="'800'"
+      :expression="expression"
+      :result="result"
     />
 
     <KeyboardArea>
       <CalcButton symbol="C" />
 
       <CalcButton
-        v-for="symbol in symbols"
-        :key="symbol"
-        :symbol="symbol"
+        v-for="button in buttons"
+        :key="button"
+        :symbol="button"
       />
 
       <CalcButton symbol="=" inverted />
